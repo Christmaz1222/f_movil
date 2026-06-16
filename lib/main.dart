@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_actividades/models/registro_model.dart';
+import 'package:sistema_actividades/pages/camara_page.dart';
 import 'package:sistema_actividades/pages/dashboard_page.dart';
 import 'package:sistema_actividades/pages/registro_page.dart';
 // 1. SOLUCIÓN: Importamos la página del PDF (Ajusta la ruta exacta de tu carpeta si es necesario)
 import 'package:sistema_actividades/pages/pdf_page.dart';
 import 'package:sistema_actividades/pages/about_page.dart';
+import 'package:sistema_actividades/pages/camera_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -50,6 +52,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       PdfPage(registros: _listaRegistros), // Ahora recibirá el tipo correcto una vez arreglado su import
       const AboutPage(),
+      const CameraPage(),
     ];
 
     return Scaffold(
@@ -84,6 +87,11 @@ class _MainScreenState extends State<MainScreen> {
                 selectedIcon: Icon(Icons.info),
                 label: Text('Acerca de'),
               ),
+              NavigationRailDestination(
+                icon: Icon(Icons.camera_alt_outlined),
+                selectedIcon: Icon(Icons.camera_alt),
+                label: Text('Cámara'),
+              ),
             ],
           ),
           const VerticalDivider(thickness: 1, width: 1),
@@ -95,4 +103,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+}
+
+class CamaraPage {
+  const CamaraPage();
 }
