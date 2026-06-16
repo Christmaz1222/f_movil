@@ -4,6 +4,7 @@ import 'package:sistema_actividades/pages/dashboard_page.dart';
 import 'package:sistema_actividades/pages/registro_page.dart';
 // 1. SOLUCIÓN: Importamos la página del PDF (Ajusta la ruta exacta de tu carpeta si es necesario)
 import 'package:sistema_actividades/pages/pdf_page.dart';
+import 'package:sistema_actividades/pages/about_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -48,6 +49,7 @@ class _MainScreenState extends State<MainScreen> {
         onRegistroGuardado: () => setState(() {}),
       ),
       PdfPage(registros: _listaRegistros), // Ahora recibirá el tipo correcto una vez arreglado su import
+      const AboutPage(),
     ];
 
     return Scaffold(
@@ -76,6 +78,11 @@ class _MainScreenState extends State<MainScreen> {
                 icon: Icon(Icons.picture_as_pdf_outlined),
                 selectedIcon: Icon(Icons.picture_as_pdf),
                 label: Text('PDF Reporte'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.info_outline),
+                selectedIcon: Icon(Icons.info),
+                label: Text('Acerca de'),
               ),
             ],
           ),
